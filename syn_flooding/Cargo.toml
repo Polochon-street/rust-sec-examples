@@ -1,0 +1,11 @@
+[package]
+name = "syn_flooding"
+version = "0.1.0"
+authors = ["Polochon-street <polochonstreet@gmx.fr>"]
+edition = "2018"
+
+[dependencies.pnet]
+version = "0.22.0"
+
+[dependencies]
+rand = "0.6.5"
