@@ -25,18 +25,18 @@ fn validate_isin(isin: &str) -> bool {
 
     let bytes = isin.as_bytes();
 
-    let first_letter = 'A' as u8;
-    let mut string = String::from("");
+    let s2 = bytes.iter()
+        .flat_map(|&c| {
+            if c.is_ascii_digit() {
+                vec![c]
+            }
+            else {
+                (c + 10 - ('A' as u8)).to_string().into_bytes()
+            }
+        }).collect::<Vec<u8>>();
 
-    for c in bytes {
-        let mut temp_str = String::from("");
-        if c.is_ascii_digit() {
-            temp_str = (*c as char).to_string();
-        } else {
-            temp_str = (c + 10 - first_letter).to_string();
-        }
-        string.push_str(&temp_str);
-    }
+    let string = std::str::from_utf8(&s2).unwrap();
     let number = string.parse::<usize>().unwrap();
+
     return compute_luhn(number);
 }
