@@ -1,0 +1,11 @@
+[[package]]
+name = "isin"
+version = "0.1.0"
+dependencies = [
+ "luhn_cc 0.1.0",
+]
+
+[[package]]
+name = "luhn_cc"
+version = "0.1.0"
+

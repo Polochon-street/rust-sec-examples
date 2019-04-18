@@ -32,8 +32,8 @@ impl Iterator for DigitIter {
     }
 }
 
-pub fn compute_luhn(mut number: usize) -> bool {
-    let mut iter_number = DigitIter(number);
+pub fn compute_luhn(number: usize) -> bool {
+    let iter_number = DigitIter(number);
     let s = iter_number.enumerate()
         .map(|(i, digit)| {
             if (i % 2) != 0 {
