@@ -1,0 +1,20 @@
+[package]
+name = "ssh_client"
+version = "0.1.0"
+authors = ["Polochon-street <polochonstreet@gmx.fr>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+thrussh = { path = "/home/polochon/Documents/Programming/Rust/thrussh-0.28.0" }
+thrussh-keys = "*"
+futures = "*"
+tokio = "*"
+anyhow = "*"
+log = "*"
+env_logger = "*"
+
+[features]
+default = ["net-tokio"]
+net-tokio = ["tokio/net"]
